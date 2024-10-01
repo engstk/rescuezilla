@@ -414,6 +414,8 @@ common_pkgs=("discover"
              "galculator"
              "google-android-platform-tools-installer"
              "arch-install-scripts"
+             "cpu-x"
+             "hardinfo"
 )
 
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
