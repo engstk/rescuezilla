@@ -13,7 +13,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: recursive
           lfs: true
@@ -65,7 +65,7 @@ jobs:
         run: cd completed-artifacts && sudo ../src/scripts/create-iso-checksums.sh rescuezilla_${{env.DEB_VERSION}}-1_all.deb  rescuezilla-${{github.ref_name}}-*.iso
 
       - name: Upload release assets (on tag push)
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
         with:
           name: v${{github.ref_name}} (${{env.RELEASE_DATE}})
