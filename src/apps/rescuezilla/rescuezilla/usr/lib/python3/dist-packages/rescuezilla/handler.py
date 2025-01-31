@@ -112,7 +112,7 @@ class Handler:
             "image_explorer_partition_selection_list"
         )
         self.set_support_information_linkbutton_visible(False)
-        self.set_patreon_call_to_action_visible(True)
+        self.set_patreon_call_to_action_visible(False)
         # TODO: Remove the need to set this variable to None
         self.selected_drive_key = None
         # Ensuring toggle button is ticked and consistency of the user-interface elements that are associated with this
@@ -605,7 +605,7 @@ class Handler:
                     self.builder.get_object("button_next").set_sensitive(False)
                     self.builder.get_object("button_back").set_sensitive(False)
                     # On success, display the Patreon call-to-action.
-                    self.set_patreon_call_to_action_visible(True)
+                    self.set_patreon_call_to_action_visible(False)
                 elif self.current_page == Page.BACKUP_PROGRESS:
                     self.current_page = Page.BACKUP_SUMMARY_SCREEN
                     self.builder.get_object("backup_tabs").set_current_page(8)
@@ -1319,7 +1319,7 @@ class Handler:
                     completed_callback=self._on_operation_completed_callback,
                 )
             # Display the Patreon call-to-action.
-            self.set_patreon_call_to_action_visible(True)
+            self.set_patreon_call_to_action_visible(False)
         else:
             self.builder.get_object("button_back").set_sensitive(True)
             self.builder.get_object("button_next").set_sensitive(True)
@@ -1339,7 +1339,7 @@ class Handler:
                 completed_callback=self._on_operation_completed_callback,
             )
             # Display the Patreon call-to-action.
-            self.set_patreon_call_to_action_visible(True)
+            self.set_patreon_call_to_action_visible(False)
         else:
             self.builder.get_object("button_back").set_sensitive(True)
             self.builder.get_object("button_next").set_sensitive(True)
@@ -1347,7 +1347,7 @@ class Handler:
     def _on_operation_completed_callback(self, is_success):
         if is_success:
             self.set_support_information_linkbutton_visible(False)
-            self.set_patreon_call_to_action_visible(True)
+            self.set_patreon_call_to_action_visible(False)
         else:
             self.set_support_information_linkbutton_visible(True)
             self.set_patreon_call_to_action_visible(False)
