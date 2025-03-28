@@ -414,6 +414,8 @@ common_pkgs=("discover"
              "cpu-x"
              "hardinfo"
              "sg3-utils"
+             "vorta"
+             "borgbackup"
 )
 
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
