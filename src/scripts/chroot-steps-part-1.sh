@@ -378,6 +378,8 @@ common_pkgs=("discover"
              "sg3-utils"
              "vorta"
              "borgbackup"
+             "zip"
+             "unzip"
 )
 
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
