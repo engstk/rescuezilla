@@ -117,7 +117,7 @@ class PartitionsToRestore:
         # it's not possible to overwrite the partition table.
         for overwrite_partition_table_checkbutton in self.partition_table_checkbutton_dict.values():
             overwrite_partition_table_checkbutton.set_sensitive(self.selected_image.has_partition_table())
-            overwrite_partition_table_checkbutton.set_active(self.selected_image.has_partition_table())
+            overwrite_partition_table_checkbutton.set_active(False)
         self.set_overwriting_partition_warning_label(self.selected_image.has_partition_table())
 
     # Quick kludge to print without UiManger
