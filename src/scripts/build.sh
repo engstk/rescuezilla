@@ -222,7 +222,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # Download rustdek .deb
-wget https://github.com/rustdesk/rustdesk/releases/download/1.3.8/rustdesk-1.3.8-x86_64.deb -P "$BUILD_DIRECTORY/chroot/"
+wget https://github.com/rustdesk/rustdesk/releases/download/1.4.0/rustdesk-1.4.0-x86_64.deb -P "$BUILD_DIRECTORY/chroot/"
 
 # Download prebuilt partclone-nbd
 wget https://github.com/engstk/partclone-nbd/releases/download/0.0.3-1/partclone-nbd_0.0.3-1_amd64.deb -P "$BUILD_DIRECTORY/chroot/"
