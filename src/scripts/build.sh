@@ -231,7 +231,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # Download rustdek .deb
-wget https://github.com/rustdesk/rustdesk/releases/download/1.3.8/rustdesk-1.3.8-x86_64.deb -P "$BUILD_DIRECTORY/chroot/"
+wget https://github.com/rustdesk/rustdesk/releases/download/1.4.0/rustdesk-1.4.0-x86_64.deb -P "$BUILD_DIRECTORY/chroot/"
 
 # Create desktop icon shortcuts
 ln -s /usr/share/applications/rescuezilla.desktop "$BUILD_DIRECTORY/chroot/home/ubuntu/Desktop/rescuezilla.desktop"
