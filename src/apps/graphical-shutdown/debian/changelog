@@ -1,3 +1,9 @@
+graphical-shutdown (2.6.0.5-1) unstable; urgency=low
+
+  * New version. For full changes: See https://github.com/engstk/rescuezilla/commits/master
+
+ -- eng.stk <eng.stk@sapo.pt>  Wed, 18 Jun 2025 10:12:00 +0100
+
 graphical-shutdown (2.6-1) unstable; urgency=low
 
   * New version. For full changes: See https://raw.githubusercontent.com/rescuezilla/rescuezilla/master/CHANGELOG.md
