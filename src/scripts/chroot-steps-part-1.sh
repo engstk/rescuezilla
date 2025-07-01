@@ -418,6 +418,7 @@ common_pkgs=("discover"
              "borgbackup"
              "zip"
              "unzip"
+             "nano"
 )
 
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
