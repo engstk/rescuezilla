@@ -150,6 +150,7 @@
         <Filename>rescuezilla.desktop</Filename>
         <Separator/>
         <Menuname>Accessories</Menuname>
+        <Menuname>Office</Menuname>
         <Menuname>Other</Menuname>
         <Menuname>DesktopSettings</Menuname>
         <Merge type="files"/>
