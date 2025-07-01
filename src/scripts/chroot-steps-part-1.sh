@@ -442,6 +442,7 @@ common_pkgs=("discover"
              "sg3-utils"
              "zip"
              "unzip"
+             "nano"
 )
 
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
