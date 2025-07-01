@@ -566,6 +566,7 @@ common_pkgs=("discover"
              "hashdeep"
              "zstd"
              "libxxhash0"
+             "picom"
 )
 
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
