@@ -444,6 +444,7 @@ common_pkgs=("discover"
              "unzip"
              "nano"
              "picom"
+             "man-db"
 )
 
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
