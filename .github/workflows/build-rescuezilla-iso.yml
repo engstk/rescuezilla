@@ -9,8 +9,6 @@ jobs:
     # functionality.
     # Launches Docker container to act as 'host system'. See BUILD.ISO.IMAGE.md for more information.
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,18 +17,8 @@ jobs:
           lfs: true
           fetch-depth: 0
 
-      # Extract human-readable version string from the most recent CHANGELOG entry
-      - run: echo "RESCUEZILLA_RELEASE_NAME=\"$(git grep -h -E -o '[a-zA-Z].*)' CHANGELOG | head -1)\"" >> $GITHUB_ENV
       # Get deb package version using same command from its build scripts
       - run: echo "DEB_VERSION=$(git describe --tags  --match='[0-9].[0-9]*' --abbrev=0)" >> $GITHUB_ENV
-
-      - name: Generate release notes (and set default release in notes)
-        if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
-        run: |
-          cd src/scripts/update
-          chmod +x generate-release-notes.sh
-          ./generate-release-notes.sh ${{github.ref_name}} "oracular" > /tmp/release-notes.md
-          echo "RELEASE_DATE=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
 
       - name: Build Docker image
         run: make docker-build
@@ -44,15 +32,10 @@ jobs:
       - name: Create completed artifacts folder
         run: mkdir completed-artifacts/
 
-      - run: make docker-status
       - name: Make DEB package
         run: make docker-deb
       - run: sudo mv build/rescuezilla_${{env.DEB_VERSION}}-1_all.deb completed-artifacts/rescuezilla_${{env.DEB_VERSION}}-1_all.deb
 
-      - name: Run unit tests within the Docker container
-        run: make docker-test
-
-      - run: make docker-status
       - name: Make Ubuntu 24.04 LTS (Noble) ISO
         run: make docker-noble
       - run: sudo mv build/rescuezilla.amd64.noble.iso completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.noble.iso
@@ -65,14 +48,10 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
         with:
-          name: v${{github.ref_name}} (${{env.RELEASE_DATE}})
-          body_path: /tmp/release-notes.md
           files: |
             completed-artifacts/*SUM
             completed-artifacts/rescuezilla_${{env.DEB_VERSION}}-1_all.deb
             completed-artifacts/rescuezilla-${{github.ref_name}}-*.iso
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Upload GitHub Action workflow *artifacts*. Note "artifacts" are a different concept to GitHub release rssets. The former is available on each GitHub Actions
       # workflow run. The latter is associated with only a pushed tag.
