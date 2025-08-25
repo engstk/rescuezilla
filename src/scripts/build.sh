@@ -231,7 +231,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # Download rustdek .deb
-wget https://github.com/rustdesk/rustdesk/releases/download/1.4.0/rustdesk-1.4.0-x86_64.deb -P "$BUILD_DIRECTORY/chroot/"
+wget https://github.com/rustdesk/rustdesk/releases/download/1.4.1/rustdesk-1.4.1-x86_64.deb -P "$BUILD_DIRECTORY/chroot/"
 
 # Download  onlyoffice-desktopeditors deb
 wget https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v9.0.0/onlyoffice-desktopeditors_amd64.deb -P "$BUILD_DIRECTORY/chroot/"
