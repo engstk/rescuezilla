@@ -187,7 +187,7 @@ class PartitionsToRestore:
                 self.selected_image.has_partition_table()
             )
             overwrite_partition_table_checkbutton.set_active(
-                self.selected_image.has_partition_table()
+                False
             )
         self.set_overwriting_partition_warning_label(
             self.selected_image.has_partition_table()
