@@ -112,7 +112,6 @@ class Handler:
             "image_explorer_partition_selection_list"
         )
         self.set_support_information_linkbutton_visible(False)
-        self.set_patreon_call_to_action_visible(False)
         # TODO: Remove the need to set this variable to None
         self.selected_drive_key = None
         # Ensuring toggle button is ticked and consistency of the user-interface elements that are associated with this
@@ -221,7 +220,6 @@ class Handler:
             builder,
             self.image_explorer_partition_selection_list,
             self.set_support_information_linkbutton_visible,
-            self.set_patreon_call_to_action_visible,
         )
 
         # Add network protocols combobox model
@@ -318,25 +316,6 @@ class Handler:
             is_visible
         )
         self.builder.get_object("image_explorer_step3_support_linkbutton").set_visible(
-            is_visible
-        )
-
-    # Ask users to contribute on the crowdfunding website Patreon.
-    def set_patreon_call_to_action_visible(self, is_visible):
-        self.builder.get_object("welcome_patreon_linkbutton").set_visible(is_visible)
-        self.builder.get_object("backup_step9_patreon_linkbutton").set_visible(
-            is_visible
-        )
-        self.builder.get_object("restore_step7_patreon_linkbutton").set_visible(
-            is_visible
-        )
-        self.builder.get_object("verify_step4_patreon_linkbutton").set_visible(
-            is_visible
-        )
-        self.builder.get_object("clone_step6_patreon_linkbutton").set_visible(
-            is_visible
-        )
-        self.builder.get_object("image_explorer_step3_patreon_linkbutton").set_visible(
             is_visible
         )
 
@@ -604,8 +583,6 @@ class Handler:
                     # Disable back/next button until the restore completes
                     self.builder.get_object("button_next").set_sensitive(False)
                     self.builder.get_object("button_back").set_sensitive(False)
-                    # On success, display the Patreon call-to-action.
-                    self.set_patreon_call_to_action_visible(False)
                 elif self.current_page == Page.BACKUP_PROGRESS:
                     self.current_page = Page.BACKUP_SUMMARY_SCREEN
                     self.builder.get_object("backup_tabs").set_current_page(8)
@@ -1318,8 +1295,6 @@ class Handler:
                     is_rescue=is_rescue,
                     completed_callback=self._on_operation_completed_callback,
                 )
-            # Display the Patreon call-to-action.
-            self.set_patreon_call_to_action_visible(False)
         else:
             self.builder.get_object("button_back").set_sensitive(True)
             self.builder.get_object("button_next").set_sensitive(True)
@@ -1338,8 +1313,6 @@ class Handler:
                 is_rescue=is_rescue,
                 completed_callback=self._on_operation_completed_callback,
             )
-            # Display the Patreon call-to-action.
-            self.set_patreon_call_to_action_visible(False)
         else:
             self.builder.get_object("button_back").set_sensitive(True)
             self.builder.get_object("button_next").set_sensitive(True)
@@ -1347,10 +1320,8 @@ class Handler:
     def _on_operation_completed_callback(self, is_success):
         if is_success:
             self.set_support_information_linkbutton_visible(False)
-            self.set_patreon_call_to_action_visible(False)
         else:
             self.set_support_information_linkbutton_visible(True)
-            self.set_patreon_call_to_action_visible(False)
         self.next_tab(None)
 
     def row_activated_next_tab(self, treeview, path, view_column):
