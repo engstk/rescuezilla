@@ -129,9 +129,9 @@ class Handler:
         # Initialize compression tool option
         self.compression_tool_list = self.builder.get_object("compression_tool_list")
         self.compression_tool_list.append(
-            ["gzip", _("gzip") + " " + "(" + _("default") + ")"]
+            ["zstd", _("zstandard") + " " + "(" + _("default") + ")"]
         )
-        self.compression_tool_list.append(["zstd", _("zstandard")])
+        self.compression_tool_list.append(["gzip", _("gzip")])
         self.compression_tool_list.append(["bzip2", _("bzip2")])
         self.compression_tool_list.append(
             ["uncompressed", _("Uncompressed (Suitable for use with Image Explorer)")]
@@ -1765,7 +1765,7 @@ class Handler:
                 # "a lot more memory. Note that decompression will also require more memory when using these levels"
                 range = (1, 19)
                 # Default compression for zstd is 3
-                default_value = 3
+                default_value = 9
             elif compression_key == "bzip2":
                 compression_level_box.set_visible(True)
                 range = (1, 9)
