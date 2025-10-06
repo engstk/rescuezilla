@@ -421,6 +421,7 @@ common_pkgs=("discover"
              "nano"
              "picom"
              "man-db"
+             "qt5-gtk2-platformtheme"
 )
 
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
