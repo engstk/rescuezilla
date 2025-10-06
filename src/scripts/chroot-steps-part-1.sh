@@ -309,7 +309,7 @@ common_pkgs=("discover"
              # PCManFM recommended packages to resolve paths like eg, smb://fileserver/johnsmith
              # TODO: Re-enable GVFS packages -- seems to cause issues around preventing refreshing partition
              # tables due to  busy disks. See Rescuezilla launch script for more information.
-             #"gvfs-backends"
+             "gvfs-backends"
              #"gvfs-fuse"
              "firefox"
              "${firefox_locale_pkgs[@]}"
