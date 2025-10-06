@@ -7,3 +7,7 @@ if [ "$BASH" ]; then
 fi
 
 mesg n
+
+# set GTK theme for QT/GTK4 apps
+export QT_QPA_PLATFORMTHEME="gtk2"
+export GTK_THEME="Arc-Dark"
