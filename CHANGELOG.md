@@ -1,5 +1,6 @@
 # Rescuezilla v2.7 (unreleased)
 
+* Adds release based on Ubuntu 25.10 (Questing) for best support of new hardware
 * Fixed blank error message window displayed after cloning (even on success), which causes the cancellation of the post-operation shutdown/restart request ([#588](https://github.com/rescuezilla/rescuezilla/issues/588#issuecomment-3098152217))
 * Fixed graphical-shutdown menu not opening on the "Plucky" variant due to missing item in custom rules file for polkit authentication manager ([#590](https://github.com/rescuezilla/rescuezilla/issues/590))
 * Upgraded to latest partclone `0.3.47` (released March 2026) from partclone `0.3.40` (released November 2025)
