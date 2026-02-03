@@ -4,6 +4,7 @@
 * Fixed graphical-shutdown menu not opening on the "Plucky" variant due to missing item in custom rules file for polkit authentication manager ([#590](https://github.com/rescuezilla/rescuezilla/issues/590))
 * Upgraded to latest partclone `0.3.40` (released November 2025) from partclone `0.3.37` (released June 2025)
 * New translation submitted using Weblate:
+    * Bengali/বাংলা (bn-BD) (in-progress)
     * Galician/Galego (gl-ES) (in-progress)
 * Upgraded to latest partclone `0.3.47` (released March 2026) from partclone `0.3.40` (released November 2025)
 

@@ -249,6 +249,7 @@ pkgs_specific_to_ubuntu2404_noble_arm64=(
 # Languages on the system
 lang_codes=(
              "ar"
+             "bn"
              "ca"
              "cs"
              "da"
