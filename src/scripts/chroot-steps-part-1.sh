@@ -295,6 +295,7 @@ lang_codes_f=(
              "nb-no"
              "pt-br"
              "sv-se"
+             "ur"
              "zh-cn"
              "zh-tw"
 )

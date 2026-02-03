@@ -8,6 +8,7 @@
     * Galician/Galego (gl-ES) (in-progress)
     * Hindi/हिन्दी (hi-IN) (in-progress)
     * Swahili/Kiswahili (sw-KE) (in-progress)
+    * Urdu/اردو (ur-PK) (in-progress)
 
 # Rescuezilla v2.6.1 (2025-07-16)
 
