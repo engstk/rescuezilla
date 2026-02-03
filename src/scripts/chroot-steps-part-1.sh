@@ -281,6 +281,7 @@ lang_codes=(
 
 lang_codes_g=(
              "es"
+             "hi"
              "nb"
              "pt"
              "sv"
@@ -290,6 +291,7 @@ lang_codes_g=(
 
 lang_codes_f=(
              "es-es"
+             "hi-in"
              "nb-no"
              "pt-br"
              "sv-se"
