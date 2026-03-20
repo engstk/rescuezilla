@@ -31,6 +31,7 @@ include src/scripts/mk/python.mk
 # FIXME: Somewhat related -- Improve build environment's ability to compile software (https://github.com/rescuezilla/rescuezilla/issues/150)
 
 BASE_BUILD_DIRECTORY ?= $(shell pwd)/build
+ARCH ?= amd64
 
 # Set shell to bash, so can use 'pipefail' to cause Make to exit when certain commands below (that pipe into tee) fails
 SHELL=/bin/bash
@@ -40,25 +41,21 @@ all: focal
 buildscripts = src/scripts/build.sh src/scripts/chroot-steps-part-1.sh src/scripts/chroot-steps-part-2.sh
 
 # ISO image based on Ubuntu 20.04 Focal LTS (Long Term Support) 64bit
-focal: ARCH=amd64
 focal: CODENAME=focal
 export ARCH CODENAME
 focal: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
 	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh
 
-jammy: ARCH=amd64
 jammy: CODENAME=jammy
 export ARCH CODENAME
 jammy: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
 	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh	
 
-oracular: ARCH=amd64
 oracular: CODENAME=oracular
 export ARCH CODENAME
 oracular: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
 	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh	
 
-plucky: ARCH=amd64
 plucky: CODENAME=plucky
 export ARCH CODENAME
 plucky: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
@@ -66,7 +63,6 @@ plucky: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
 
 # Note: Ubuntu 24.04 (Long Term Support) won't be released until around April 2024, as per the version string
 # Kept here as the unreleased version can be built and used as a kind of pre-alpha release
-noble: ARCH=amd64
 noble: CODENAME=noble
 export ARCH CODENAME
 noble: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
