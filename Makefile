@@ -1,5 +1,24 @@
 .DEFAULT_GOAL := plucky
-.PHONY: all focal lunar jammy oracular plucky noble bionic-i386 deb sfdisk.v2.20.1.amd64 partclone.restore.v0.2.43.amd64 partclone-latest partclone-utils partclone-nbd install test integration-test clean-build-dir clean clean-all
+.PHONY: all \
+	focal \
+	lunar \
+	jammy \
+	oracular \
+	plucky \
+	noble \
+	bionic-i386 \
+	deb \
+	sfdisk.v2.20.1.amd64 \
+	partclone.restore.v0.2.43.amd64 \
+	partclone-latest \
+	partclone-utils \
+	partclone-nbd \
+	install \
+	test integration-test \
+	clean-build-dir \
+	clean \
+	clean-all \
+	docker-bash
 
 # Include Python tooling makefile
 include src/scripts/mk/python.mk
