@@ -26,6 +26,9 @@ CODENAME="${CODENAME:-INVALID}"
 # [1] https://help.ubuntu.com/lts/installation-guide/armhf/ch02s01.html
 ARCH="${ARCH:-INVALID}"
 
+# Apt sources URL
+URL="INVALID"
+
 # One-higher than directory containing this build script
 BASEDIR="$(git rev-parse --show-toplevel)"
 
@@ -60,10 +63,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-if [ "$CODENAME" = "INVALID" ] || [ "$ARCH" = "INVALID" ]; then
-  echo "The variable CODENAME=${CODENAME} or ARCH=${ARCH} was not set correctly. Are you using the Makefile? Please consult build instructions."
-  exit 1
-fi
+source "$BASEDIR/src/scripts/lib.sh"
+identify_sources_url_old_release_or_port
 
 # For end-of-life Ubuntu releases, we need to specify the paths to the GPG keys manually.
 #
@@ -104,7 +105,7 @@ if [ ! -d "$PKG_CACHE_DIRECTORY/$DEBOOTSTRAP_CACHE_DIRECTORY" ] ; then
         --foreign \
         $CODENAME \
         $TARGET_FOLDER \
-        http://archive.ubuntu.com/ubuntu/
+        "$URL"
     RET=$?
     popd
     if [[ $RET -ne 0 ]]; then
@@ -207,6 +208,7 @@ APT_CONFIG_FILES=(
 # Substitute Ubuntu code name into relevant apt configuration files
 for apt_config_file in "${APT_CONFIG_FILES[@]}"; do
   sed --in-place s/CODENAME_SUBSTITUTE/$CODENAME/g $apt_config_file
+  sed --in-place "s|URL_SUBSTITUTE|$URL|g" $apt_config_file
 done
 
 cp "$BASEDIR/src/scripts/chroot-steps-part-1.sh" "$BASEDIR/src/scripts/chroot-steps-part-2.sh" chroot
