@@ -18,7 +18,8 @@
 	clean-build-dir \
 	clean \
 	clean-all \
-	docker-bash
+	docker-bash \
+	docker-shell
 
 # Include Python tooling makefile
 include src/scripts/mk/python.mk
@@ -281,6 +282,8 @@ docker-status:
 # Start an interactive bash session for live debugging
 docker-bash:
 	docker exec --interactive --tty --workdir=/home/rescuezilla/ builder.container /bin/bash
+
+docker-shell: docker-bash
 
 docker-deb:
 	docker exec --interactive --workdir=/home/rescuezilla/ builder.container make deb
