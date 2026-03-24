@@ -101,7 +101,6 @@ if [ ! -d "$PKG_CACHE_DIRECTORY/$DEBOOTSTRAP_CACHE_DIRECTORY" ] ; then
     DEBOOTSTRAP_DIR=${DEBOOTSTRAP_SCRIPT_DIRECTORY} ./debootstrap \
         ${KEYRING_OPTS} \
         --arch=$ARCH \
-        --no-resolve-deps \
         --foreign \
         $CODENAME \
         $TARGET_FOLDER \
