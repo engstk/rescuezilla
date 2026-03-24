@@ -6,13 +6,13 @@
 #
 # 池边树下 <mzky@163.com>, 2021, 2025.
 # Eric <hamburger2048@users.noreply.hosted.weblate.org>, 2023.
-# 大王叫我来巡山 <hamburger2048@users.noreply.hosted.weblate.org>, 2025.
+# 大王叫我来巡山 <hamburger2048@users.noreply.hosted.weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-02 00:00+0000\n"
-"PO-Revision-Date: 2025-06-26 04:01+0000\n"
+"PO-Revision-Date: 2026-03-13 03:09+0000\n"
 "Last-Translator: 大王叫我来巡山 "
 "<hamburger2048@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid "Welcome"
 msgstr "欢迎"
@@ -31,7 +31,7 @@ msgid "Select an Option"
 msgstr "选择一个选项"
 
 msgid "Easily create a backup image of your computer, or completely restore from one.  Click an option to begin:"
-msgstr "轻松创建计算机的备份镜像或从一个镜像完全恢复。点击一个选项开始："
+msgstr "轻松创建计算机的备份镜像或从一个镜像完全恢复。单击一个选项开始："
 
 msgid "Backup"
 msgstr "备份"
@@ -43,7 +43,9 @@ msgid "Verify Image"
 msgstr "验证镜像"
 
 msgid "Need help? Start by checking the Rescuezilla frequently asked questions, then proceed to the Rescuezilla forum."
-msgstr "如需帮助，请先查阅Rescuezilla常见问题（FAQ），或进入Rescuezilla论坛寻找帮助。"
+msgstr ""
+"如需帮助，请先查阅Rescuezilla常见问题（FAQ），之后进入Rescuezilla论坛寻找帮助"
+"。"
 
 msgid "Consider contributing $1/month on the crowdfunding website Patreon so Rescuezilla can continue to be developed."
 msgstr "在众筹网站Patreon上每月捐赠1美元，以便支持Rescuezilla持续发展。"
@@ -98,22 +100,24 @@ msgid "This mode is for \"disk cloning\". Cloning means copying one drive and di
 ""
 "To use the \"imaging\" wizards, click <b>Back</b> and select <b>Backup</b> or <b>Restore</b>."
 msgstr ""
-"这种模式是用于 \"磁盘克隆\"。克隆意味着复制一个驱动器并直接覆盖另一个驱动器。这是一个直接的一步操作，不需要临时存储。\n"
+"这种模式是用于 \"磁盘克隆\"。克隆意味着复制一个驱动器并直接覆盖另一个驱动器。"
+"这是一个直接的一步操作，不需要临时存储。\n"
 "\n"
-"克隆与 \"磁盘镜像 \"不同。镜像是指将一个驱动器上的所有内容，复制到存储在外部驱动器的目录下一个非常大的文件中。在同一个外部驱动器上可以保存多个镜像。"
-"这些镜像可以恢复到原始磁盘或其他磁盘。换句话说，对于 \"镜像\""
-"，备份操作将你的驱动器复制到<i>文件</i>，这些文件至少需要暂时存储在一个驱动器上，然后才能恢复。\n"
+"克隆与 \"磁盘镜像 \"不同。镜像是指将一个驱动器上的所有内容，复制到存储在外部"
+"驱动器的目录下一个非常大的文件中。在同一个外部驱动器上可以保存多个镜像。这些"
+"镜像可以恢复到原始磁盘或其他磁盘。换句话说，对于 \"镜像\"，备份操作将你的驱动"
+"器复制到<i>文件</i>，这些文件至少需要暂时存储在一个驱动器上，然后才能恢复。\n"
 "\n"
-"要使用 \"镜像\"向导，请点击<b>返回</b>并选择<b>备份</b>或<b>还原</b>。"
+"要使用 \"镜像\"向导，请单击<b>返回</b>并选择<b>备份</b>或<b>还原</b>。"
 
 msgid "To begin the \"cloning\" wizard, click <b>Next</b>"
-msgstr "要开始 \"克隆 \"向导，点击<b>下一步</b>"
+msgstr "要开始 \"克隆 \"向导，单击<b>下一步</b>"
 
 msgid "Step 2: Select Source Drive"
 msgstr "第2步：选择源磁盘"
 
 msgid "Select the <b>source drive</b> to clone."
-msgstr "选择<b>源磁盘</b>来克隆。"
+msgstr "选择要克隆的<b>源磁盘</b>。"
 
 msgid "Select the <b>destination drive</b> to overwrite."
 msgstr "选择要覆盖的<b>目标磁盘</b>。"
@@ -134,7 +138,7 @@ msgid "Cloning the following partitions"
 msgstr "克隆以下分区"
 
 msgid "To start cloning, click <b>Next</b>."
-msgstr "要开始克隆，点击<b>下一步</b>。"
+msgstr "要开始克隆，单击<b>下一步</b>。"
 
 #, python-brace-format
 msgid "Are you sure you want to clone the drive to {destination_drive}? Doing so will permanently overwrite data on this drive!"
@@ -163,7 +167,7 @@ msgid "Step 1: Select Drive To Backup"
 msgstr "第1步：选择要备份的磁盘"
 
 msgid "Select the <b>source drive</b> that you would like to create a backup image from."
-msgstr "选择需要备份为镜像的<b>源磁盘</b>。"
+msgstr "选择需要备份镜像的<b>源磁盘</b>。"
 
 msgid "Drive"
 msgstr "磁盘"
@@ -392,7 +396,7 @@ msgid "Last modified"
 msgstr "上次修改"
 
 msgid "When you are happy with the destination folder, click <b>Next</b>."
-msgstr "当您已确认目标文件夹后，请单击<b>下一步</b>。"
+msgstr "确认目标文件夹后，请单击<b>下一步</b>。"
 
 msgid "Step 5: Name Your Backup"
 msgstr "第5步：命名备份文件"
@@ -560,7 +564,7 @@ msgid "Step 2: Select Backup Image"
 msgstr "第2步：选择要还原的镜像"
 
 msgid "Click <b>Browse</b> to select the folder containing image files."
-msgstr "点击<b>浏览</b>选择包含镜像的文件夹。"
+msgstr "单击<b>浏览</b>选择包含镜像文件的文件夹。"
 
 msgid "Select the image file to restore."
 msgstr "选择要还原的镜像文件。"
@@ -612,7 +616,7 @@ msgid "Not restoring this partition"
 msgstr "不还原此分区"
 
 msgid "When you are ready to continue, click <b>Next</b>."
-msgstr "当你准备继续时，点击<b>下一步</b>。"
+msgstr "当你准备继续时，单击<b>下一步</b>。"
 
 msgid "Scanning and unmounting any Logical Volume Manager (LVM) Logical Volumes…"
 msgstr "扫描和卸载任何逻辑卷管理器（LVM）逻辑卷…"
@@ -792,7 +796,7 @@ msgid "Select the partition to access files from."
 msgstr "选择要访问文件的分区。"
 
 msgid "Click <b>Mount</b> to mount the backup image (as read-only)."
-msgstr "点击<b>挂载</b>来挂载备份镜像（作为只读）。"
+msgstr "单击<b>挂载</b>来挂载备份镜像（只读）。"
 
 msgid "Mount"
 msgstr "挂载"
