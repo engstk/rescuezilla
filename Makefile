@@ -1,7 +1,6 @@
 .DEFAULT_GOAL := plucky
 .PHONY: all \
 	focal \
-	lunar \
 	jammy \
 	oracular \
 	plucky \
