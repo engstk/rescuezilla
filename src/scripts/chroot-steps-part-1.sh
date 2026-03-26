@@ -386,7 +386,6 @@ common_pkgs=("discover"
              "xfsdump"
              "xfsprogs"
              "udftools"
-             "grub-pc-bin"
              "grub2-common"
              "${language_pack_gnome_base_pkg[@]}"
              "qemu-utils"
@@ -401,6 +400,11 @@ common_pkgs=("discover"
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
 if  [ "$IS_INTEGRATION_TEST" == "true" ]; then
     common_pkgs=("${common_pkgs[@]}" "openssh-server")
+fi
+
+# grub-pc-bin is x86-only (BIOS boot support), not applicable on ARM64
+if  [ "$ARCH" == "amd64" ] || [ "$ARCH" == "i386" ]; then
+    common_pkgs=("${common_pkgs[@]}" "grub-pc-bin")
 fi
 
 if    [ "$CODENAME" == "bionic" ]; then
