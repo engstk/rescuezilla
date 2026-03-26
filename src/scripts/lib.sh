@@ -2,6 +2,9 @@
 # Common helper functions
 #
 
+PRIMARY_URL="${PRIMARY_URL:-http://archive.ubuntu.com/ubuntu}"
+PORTS_URL="${PORTS_URL:-http://ports.ubuntu.com/ubuntu-ports/ubuntu-ports}"
+
 # Returns the HTTP status code for a URL without downloading the body.
 # $1: URL to check
 function get_url_http_status() {
@@ -27,10 +30,10 @@ function identify_sources_url_old_release_or_port() {
     exit 1
   elif [ "$ARCH" = "amd64" ] || [ "$ARCH" = "i386" ]; then
     echo "Setting URL to main mirror"
-    URL="http://archive.ubuntu.com/ubuntu"
+    URL="$PRIMARY_URL"
   else
     echo "Setting URL to ports mirror"
-    URL="http://ports.ubuntu.com/ubuntu-ports/ubuntu-ports"
+    URL="$PORTS_URL"
   fi
 
   # The file named "Release" on the remote server is small, and sufficient to determine if the path is valid
