@@ -5,6 +5,7 @@
 	oracular \
 	plucky \
 	noble \
+	noble-arm64 \
 	bionic-i386 \
 	deb \
 	sfdisk.v2.20.1.amd64 \
@@ -66,6 +67,13 @@ plucky: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
 noble: CODENAME=noble
 export ARCH CODENAME
 noble: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
+	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh	
+
+# Test
+noble-arm64: CODENAME=noble
+noble-arm64: ARCH=arm64
+export ARCH CODENAME
+noble-arm64: deb partclone-latest partclone-nbd $(buildscripts)
 	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh	
 
 # ISO image based on Ubuntu 18.04 Bionic LTS (Long Term Support) 32bit (the last 32bit/i386 Ubuntu LTS release)
