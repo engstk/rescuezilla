@@ -323,6 +323,8 @@ common_pkgs=("discover"
              "casper"
              "openbox"
              "lightdm"
+             # lightdm complains on arm64 when this is missing
+	     "accountsservice"
              # Firmware package for NVidia cards from ~2009 (newer cards have firmware in the kernel)
              "nouveau-firmware"
              "x11-xserver-utils"
