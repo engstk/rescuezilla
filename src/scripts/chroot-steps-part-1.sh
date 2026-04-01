@@ -597,6 +597,7 @@ common_pkgs=("discover"
              "gsmartcontrol"
              "grsync"
              "ghex"
+             "pwgen"
 )
 
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
