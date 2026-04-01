@@ -423,6 +423,9 @@ common_pkgs=("discover"
              "qt5-gtk2-platformtheme"
              "gnumeric"
              "abiword"
+             "gsmartcontrol"
+             "grsync"
+             "ghex"
 )
 
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
