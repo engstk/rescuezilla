@@ -449,6 +449,9 @@ common_pkgs=("discover"
              "borgbackup"
              "gnumeric"
              "abiword"
+             "gsmartcontrol"
+             "grsync"
+             "ghex"
 )
 
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
