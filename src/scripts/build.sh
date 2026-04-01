@@ -240,9 +240,6 @@ fi
 wget https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.deb -P "$BUILD_DIRECTORY/chroot/"
 
 # Download  onlyoffice-desktopeditors deb
-wget https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v9.0.4/onlyoffice-desktopeditors_amd64.deb -P "$BUILD_DIRECTORY/chroot/"
-
-# Download  onlyoffice-desktopeditors deb
 wget https://github.com/engstk/pika-backup/releases/download/v0.7.4/pika-backup_0.7.4-1_amd64.deb -P "$BUILD_DIRECTORY/chroot/"
 
 # Create desktop icon shortcuts
