@@ -565,5 +565,3 @@ xorrisofs "${xorrisofs_args[@]}"
 cd "$BUILD_DIRECTORY"
 mv "$BUILD_DIRECTORY/$RESCUEZILLA_ISO_FILENAME" ../
 
-# TODO: Evaluate the "Errata" sections of the Redo Backup and Recovery
-# TODO: Sourceforge Wiki, and determine if the build scripts need modification.
