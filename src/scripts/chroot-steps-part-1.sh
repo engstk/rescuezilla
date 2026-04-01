@@ -421,6 +421,8 @@ common_pkgs=("discover"
              "picom"
              "man-db"
              "qt5-gtk2-platformtheme"
+             "gnumeric"
+             "abiword"
 )
 
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
