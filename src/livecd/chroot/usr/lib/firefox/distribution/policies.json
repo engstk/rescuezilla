@@ -3,16 +3,42 @@
     "Homepage": {
       "URL": "https://search.brave.com/"
     },
+
+    "SearchEngines": {
+      "Add": [
+        {
+          "Name": "Brave",
+          "URLTemplate": "https://search.brave.com/search?q={searchTerms}",
+          "Method": "GET",
+          "IconURL": "https://search.brave.com/favicon.ico",
+          "Alias": "@brave"
+        }
+      ],
+      "Default": "Brave"
+    },
+
+    "ExtensionSettings": {
+      "*": {
+        "installation_mode": "allowed"
+      },
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+      }
+    },
+
     "DontCheckDefaultBrowser": true,
-    "DisableTelemetry": true, 
+    "DisableTelemetry": true,
     "DisableProfileImport": true,
     "OfferToSaveLogins": false,
-    "NewTabPage": false, 
+    "NewTabPage": false,
     "OverrideFirstRunPage": "",
     "OverridePostUpdatePage": "",
+
     "Preferences": {
       "browser.tabs.warnOnClose": false
     },
+
     "Bookmarks": {
       "DisplayBookmarksToolbar": false,
       "NoDefaultBookmarks": true
