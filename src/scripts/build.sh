@@ -389,7 +389,7 @@ rm -rf image/casper/filesystem.squashfs "$RESCUEZILLA_ISO_FILENAME"
 
 echo "Compressing squashfs using zstandard (rather than default gzip)."
 if  [ "$IS_INTEGRATION_TEST" == "true" ]; then
-    echo "Using lowest possible compression level of 1 to speed up compression for debug builds." 
+    echo "Using lowest possible compression level of 1 to speed up compression for debug builds."
     COMPRESSION_LEVEL=1
 else
     echo "Using max compression level of 19. The compression time is greatly increased, but the decompression time "
