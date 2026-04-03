@@ -317,21 +317,23 @@ umount -lf chroot/dev/
 rm chroot/root/.bash_history
 rm chroot/chroot-steps-part-1.sh chroot/chroot-steps-part-2.sh
 
-mkdir -p image/casper image/memtest
-cp chroot/boot/vmlinuz-*-generic image/casper/vmlinuz
+mkdir -p image/casper
+# The vmlinuz is a symlink to the exact kernel version, so no need to use the versioned glob.
+cp chroot/boot/vmlinuz image/casper/vmlinuz
 if [[ $? -ne 0 ]]; then
     echo "Error: Failed to copy vmlinuz image."
     exit 1
 fi
-# Ensures compressed Linux kernel image is readable during the MD5 checksum at boot
 chmod 644 image/casper/vmlinuz
 
-cp chroot/boot/initrd.img-*-generic image/casper/initrd.lz
+# The initrd.img is a symlink to the exact initrd version, so no need to use the versioned glob.
+cp chroot/boot/initrd.img image/casper/initrd.lz
 if [[ $? -ne 0 ]]; then
     echo "Error: Failed to copy initrd image."
     exit 1
 fi
 
+mkdir -p image/memtest
 # The memtest binaries are copied in from the host system (ie, the Docker build container)
 # TODO(#540): Support 64-bit and EFI memtest packages
 cp /boot/memtest86+ia32.bin image/memtest/
