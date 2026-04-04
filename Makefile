@@ -5,6 +5,7 @@
 	oracular \
 	plucky \
 	noble \
+	noble-arm64 \
 	bionic-i386 \
 	deb \
 	sfdisk.v2.20.1.amd64 \
@@ -31,6 +32,7 @@ include src/scripts/mk/python.mk
 # FIXME: Somewhat related -- Improve build environment's ability to compile software (https://github.com/rescuezilla/rescuezilla/issues/150)
 
 BASE_BUILD_DIRECTORY ?= $(shell pwd)/build
+ARCH ?= amd64
 
 # Set shell to bash, so can use 'pipefail' to cause Make to exit when certain commands below (that pipe into tee) fails
 SHELL=/bin/bash
@@ -40,25 +42,21 @@ all: focal
 buildscripts = src/scripts/build.sh src/scripts/chroot-steps-part-1.sh src/scripts/chroot-steps-part-2.sh
 
 # ISO image based on Ubuntu 20.04 Focal LTS (Long Term Support) 64bit
-focal: ARCH=amd64
 focal: CODENAME=focal
 export ARCH CODENAME
 focal: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
 	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh
 
-jammy: ARCH=amd64
 jammy: CODENAME=jammy
 export ARCH CODENAME
 jammy: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
 	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh	
 
-oracular: ARCH=amd64
 oracular: CODENAME=oracular
 export ARCH CODENAME
 oracular: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
 	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh	
 
-plucky: ARCH=amd64
 plucky: CODENAME=plucky
 export ARCH CODENAME
 plucky: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
@@ -66,10 +64,16 @@ plucky: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
 
 # Note: Ubuntu 24.04 (Long Term Support) won't be released until around April 2024, as per the version string
 # Kept here as the unreleased version can be built and used as a kind of pre-alpha release
-noble: ARCH=amd64
 noble: CODENAME=noble
 export ARCH CODENAME
 noble: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
+	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh	
+
+# Test
+noble-arm64: CODENAME=noble
+noble-arm64: ARCH=arm64
+export ARCH CODENAME
+noble-arm64: deb partclone-latest partclone-nbd $(buildscripts)
 	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh	
 
 # ISO image based on Ubuntu 18.04 Bionic LTS (Long Term Support) 32bit (the last 32bit/i386 Ubuntu LTS release)
@@ -148,7 +152,7 @@ partclone-latest:
 	cd $(PARTCLONE_LATEST_BUILD_DIR) && make
 	# Create deb package from a standard Makefile's `make install` using the checkinstall tool (for cleaner uninstall)
 	cd $(PARTCLONE_LATEST_BUILD_DIR) && checkinstall --install=no --pkgname partclone --pkgversion $(PARTCLONE_PKG_VERSION) --pkgrelease 1 --maintainer 'rescuezilla@gmail.com' -D --default  make install
-	mv $(PARTCLONE_LATEST_BUILD_DIR)/partclone_$(PARTCLONE_PKG_VERSION)-1_amd64.deb $(AMD64_BUILD_DIR)/chroot/
+	mv $(PARTCLONE_LATEST_BUILD_DIR)/partclone_$(PARTCLONE_PKG_VERSION)-1_$(ARCH).deb $(AMD64_BUILD_DIR)/chroot/
 
 # Builds partclone-utils, which contains some very useful utilities for working with partclone images.
 partclone-utils: SRC_DIR=$(shell pwd)/src/third-party/partclone-utils
@@ -162,7 +166,7 @@ partclone-utils:
 	cd $(PARTCLONE_UTILS_BUILD_DIR) && ./configure
 	# Create deb package from a standard Makefile's `make install` using the checkinstall tool (for cleaner uninstall)
 	cd $(PARTCLONE_UTILS_BUILD_DIR) && checkinstall --install=no --pkgname partclone-utils --pkgversion 0.4.2 --pkgrelease 1 --maintainer 'rescuezilla@gmail.com' -D --default  make install
-	mv $(PARTCLONE_UTILS_BUILD_DIR)/partclone-utils_0.4.2-1_amd64.deb $(AMD64_BUILD_DIR)/chroot/
+	mv $(PARTCLONE_UTILS_BUILD_DIR)/partclone-utils_0.4.2-1_$(ARCH).deb $(AMD64_BUILD_DIR)/chroot/
 
 # Builds partclone-nbd, a competitor project to partclone-utils that's also able to mount partclone images.
 partclone-nbd: SRC_DIR=$(shell pwd)/src/third-party/partclone-nbd
@@ -175,7 +179,7 @@ partclone-nbd:
 	# Compile and package DEB. Override the user-managed /opt target installation directory with /usr/local since
 	# build scripts constitutes the system administrator of the operating system being constructed so /opt is less appropriate
 	cd $(PARTCLONE_NBD_BUILD_DIR) && cpack -D CPACK_PACKAGING_INSTALL_PREFIX="/usr/local" -G DEB
-	mv $(PARTCLONE_NBD_BUILD_DIR)/_packages/partclone-nbd_0.0.4_amd64.deb $(AMD64_BUILD_DIR)/chroot/
+	mv $(PARTCLONE_NBD_BUILD_DIR)/_packages/partclone-nbd_0.0.4_$(ARCH).deb $(AMD64_BUILD_DIR)/chroot/
 
 clean-build-dir:
 	$(info * Unmounting chroot bind mounts)
@@ -203,7 +207,7 @@ install: AMD64_BUILD_DIR=$(BASE_BUILD_DIRECTORY)/$(CODENAME).$(ARCH)
 install: PARTCLONE_NBD_BUILD_DIR=$(AMD64_BUILD_DIR)/partclone-nbd
 install: DEB_BUILD_DIR=$(BASE_BUILD_DIRECTORY)/deb
 install: partclone-nbd deb
-	DEBIAN_FRONTEND=noninteractive gdebi --non-interactive $(AMD64_BUILD_DIR)/chroot/partclone-nbd_0.0.3-1_amd64.deb
+	DEBIAN_FRONTEND=noninteractive gdebi --non-interactive $(AMD64_BUILD_DIR)/chroot/partclone-nbd_0.0.3-1_$(ARCH).deb
 	DEBIAN_FRONTEND=noninteractive gdebi --non-interactive $(DEB_BUILD_DIR)/../rescuezilla_*.deb
 
 test: RESCUEZILLA_TEST_DIR=$(shell pwd)/src/apps/rescuezilla/rescuezilla/usr/lib/python3/dist-packages/rescuezilla

@@ -222,6 +222,30 @@ pkgs_specific_to_ubuntu2404_noble=(
                        "util-linux-extra"
 )
 
+pkgs_specific_to_ubuntu2404_noble_arm64=(
+                       "linux-generic"
+                       "xserver-xorg"
+                       "xserver-xorg-video-all"
+                       "xserver-xorg-video-qxl"
+                       "xserver-xorg-video-mga"
+                       "xserver-xorg-input-libinput"
+                        # Packages which may assist users needing to do a GRUB repair (64-bit EFI)
+                       "shim-signed"
+                       # Dependency for Rescuezilla Image Explorer
+                       "nbdkit"
+                       # Replaces exfat-utils
+                       "exfatprogs"
+                       # Add support for crypto volumes mount (luks, bitlocker, crypt)
+                       "libblockdev-crypto3"
+                       # "Legacy "local authority" (.pkla) backend for polkitd" required so polkit works on Mantic
+                       # FIXME: Can probably remove with the recent introduction of new Javascript-based rules file
+                       "polkitd-pkla"
+                       "reiser4progs"
+                       "python3-whichcraft"
+                       # Needed for 'hwclock' package used by "rc-local.service", moved from base "util-linux" since Ubuntu 23.10 (Mantic)
+                       "util-linux-extra"
+)
+
 # Languages on the system
 lang_codes=(
              "ar"
@@ -299,6 +323,8 @@ common_pkgs=("discover"
              "casper"
              "openbox"
              "lightdm"
+             # lightdm complains on arm64 when this is missing
+	     "accountsservice"
              # Firmware package for NVidia cards from ~2009 (newer cards have firmware in the kernel)
              "nouveau-firmware"
              "x11-xserver-utils"
@@ -386,7 +412,6 @@ common_pkgs=("discover"
              "xfsdump"
              "xfsprogs"
              "udftools"
-             "grub-pc-bin"
              "grub2-common"
              "${language_pack_gnome_base_pkg[@]}"
              "qemu-utils"
@@ -403,7 +428,14 @@ if  [ "$IS_INTEGRATION_TEST" == "true" ]; then
     common_pkgs=("${common_pkgs[@]}" "openssh-server")
 fi
 
-if    [ "$CODENAME" == "bionic" ]; then
+# grub-pc-bin is x86-only (BIOS boot support), not applicable on ARM64
+if  [ "$ARCH" == "amd64" ] || [ "$ARCH" == "i386" ]; then
+    common_pkgs=("${common_pkgs[@]}" "grub-pc-bin")
+fi
+
+if    [ "$CODENAME" == "noble" ] && [ "$ARCH" == "arm64" ]; then
+  apt_pkg_list=("${pkgs_specific_to_ubuntu2404_noble_arm64[@]}" "${common_pkgs[@]}")
+elif  [ "$CODENAME" == "bionic" ]; then
   apt_pkg_list=("${pkgs_specific_to_ubuntu1804_bionic_32bit[@]}" "${common_pkgs[@]}")
 elif  [ "$CODENAME" == "focal" ]; then
   apt_pkg_list=("${pkgs_specific_to_ubuntu2004_focal[@]}" "${common_pkgs[@]}")
