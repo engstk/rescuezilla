@@ -38,9 +38,9 @@ jobs:
         run: make docker-deb
       - run: sudo mv build/rescuezilla_${{env.DEB_VERSION}}-1_all.deb completed-artifacts/rescuezilla_${{env.DEB_VERSION}}-1_all.deb
 
-      - name: Make Ubuntu 24.04 LTS (Noble) ISO
-        run: make docker-noble
-      - run: sudo mv build/rescuezilla.amd64.noble.iso completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.noble.iso
+      - name: Make Ubuntu 26.04 LTS (Resolute) ISO
+        run: make docker-resolute
+      - run: sudo mv build/rescuezilla.amd64.resolute.iso completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.resolute.iso
       - run: sudo make clean-all
 
       - name: Create checksums for ISO images
@@ -70,5 +70,5 @@ jobs:
 
       - uses: actions/upload-artifact@v6
         with:
-          name: rescuezilla-${{github.ref_name}}-64bit.noble.iso
-          path: completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.noble.iso
+          name: rescuezilla-${{github.ref_name}}-64bit.resolute.iso
+          path: completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.resolute.iso

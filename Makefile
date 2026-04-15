@@ -1,4 +1,4 @@
-.DEFAULT_GOAL := plucky
+.DEFAULT_GOAL := noble
 .PHONY: all \
 	focal \
 	jammy \
@@ -6,6 +6,7 @@
 	plucky \
 	noble \
 	noble-arm64 \
+	resolute \
 	bionic-i386 \
 	deb \
 	sfdisk.v2.20.1.amd64 \
@@ -75,6 +76,12 @@ noble-arm64: ARCH=arm64
 export ARCH CODENAME
 noble-arm64: deb partclone-latest partclone-nbd $(buildscripts)
 	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh	
+
+# Ubuntu 26.04 (Long Term Support - Test)
+resolute: CODENAME=resolute
+export ARCH CODENAME
+resolute: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
+	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh
 
 # ISO image based on Ubuntu 18.04 Bionic LTS (Long Term Support) 32bit (the last 32bit/i386 Ubuntu LTS release)
 bionic-i386: ARCH=i386
@@ -306,6 +313,9 @@ docker-plucky:
 
 docker-noble:
 	docker exec --interactive --workdir=/home/rescuezilla/ builder.container make noble
+
+docker-resolute:
+	docker exec --interactive --workdir=/home/rescuezilla/ builder.container make resolute
 
 docker-jammy:
 	docker exec --interactive --workdir=/home/rescuezilla/ builder.container make jammy
