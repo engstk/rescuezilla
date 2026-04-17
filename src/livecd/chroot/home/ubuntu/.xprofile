@@ -6,6 +6,7 @@ nm-applet &
 
 # ALSA volume control widget
 volumeicon &
+pnmixer &
 
 # lxpanel (panel/systray)
 (sleep 1 && lxpanel)&
