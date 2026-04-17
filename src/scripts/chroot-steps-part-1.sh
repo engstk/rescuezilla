@@ -328,6 +328,8 @@ pkgs_specific_to_ubuntu2604_resolute=(
                        "${pkgs_granular_linux_firmware_all_arch_resolute[@]}"
                        # Intel Intelligent Storage Acceleration Library
                        "libisal2"
+                       # volumeicon-alsa not available for resolute
+                       "pnmixer"
 )
 
 pkgs_specific_to_ubuntu2404_noble=(
