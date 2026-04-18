@@ -44,7 +44,7 @@ jobs:
       - run: sudo make clean-all
 
       - name: Create checksums for ISO images
-        run: cd completed-artifacts && sudo ../src/scripts/create-iso-checksums.sh rescuezilla_${{env.DEB_VERSION}}-1_all.deb  rescuezilla-${{github.ref_name}}-*.iso
+        run: cd completed-artifacts && sudo ../src/scripts/create-iso-checksums.sh rescuezilla-${{github.ref_name}}-*.iso
 
       - name: Upload release assets (on tag push)
         uses: softprops/action-gh-release@v3
@@ -52,23 +52,4 @@ jobs:
         with:
           files: |
             completed-artifacts/*SUM
-            completed-artifacts/rescuezilla_${{env.DEB_VERSION}}-1_all.deb
             completed-artifacts/rescuezilla-${{github.ref_name}}-*.iso
-
-      # Upload GitHub Action workflow *artifacts*. Note "artifacts" are a different concept to GitHub release rssets. The former is available on each GitHub Actions
-      # workflow run. The latter is associated with only a pushed tag.
-
-      - uses: actions/upload-artifact@v6
-        with:
-          name: SHA256SUM
-          path: completed-artifacts/SHA256SUM
-
-      - uses: actions/upload-artifact@v6
-        with:
-          name: rescuezilla_${{env.DEB_VERSION}}-1_all.deb
-          path: completed-artifacts/rescuezilla_${{env.DEB_VERSION}}-1_all.deb
-
-      - uses: actions/upload-artifact@v6
-        with:
-          name: rescuezilla-${{github.ref_name}}-64bit.noble.iso
-          path: completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.noble.iso
