@@ -98,10 +98,24 @@ if [ ! -d "$PKG_CACHE_DIRECTORY/$DEBOOTSTRAP_CACHE_DIRECTORY" ] ; then
     #
     # [1] http://old-releases.ubuntu.com/ubuntu
     TARGET_FOLDER=`readlink -f $PKG_CACHE_DIRECTORY/$DEBOOTSTRAP_CACHE_DIRECTORY`
+    # For Ubuntu 25.04 (Questing) and 25.10 (Resolute), exclude Rust coreutils and include GNU coreutils
+    # to work around package dependency issues (TODO: add issue reference)
+    if [ "$CODENAME" == "questing" ] || [ "$CODENAME" == "resolute" ]; then
+        EXCLUDE_PACKAGES_OPTS="--exclude=coreutils-from-uutils,rust-coreutils"
+        INCLUDE_PACKAGES_OPTS="--include=coreutils-from-gnu,gnu-coreutils"
+        NO_RESOLVE_DEPS_OPT="--no-resolve-deps"
+    else
+        EXCLUDE_PACKAGES_OPTS=""
+        INCLUDE_PACKAGES_OPTS=""
+        NO_RESOLVE_DEPS_OPT=""
+    fi
     pushd ${DEBOOTSTRAP_SCRIPT_DIRECTORY}
     DEBOOTSTRAP_DIR=${DEBOOTSTRAP_SCRIPT_DIRECTORY} ./debootstrap \
         ${KEYRING_OPTS} \
         --arch=$ARCH \
+        ${EXCLUDE_PACKAGES_OPTS} \
+        ${INCLUDE_PACKAGES_OPTS} \
+        ${NO_RESOLVE_DEPS_OPT} \
         --foreign \
         $CODENAME \
         $TARGET_FOLDER \
