@@ -81,6 +81,7 @@ pkgs_specific_to_ubuntu1804_bionic_32bit=("linux-generic-hwe-18.04"
                         "libblockdev-crypto2"
                         "ibus-anthy"
                         "reiser4progs"
+                        "reiserfsprogs"
                         "python3-whichcraft"
                         "volumeicon-alsa"
 )
@@ -112,6 +113,7 @@ pkgs_specific_to_ubuntu2004_focal=("linux-generic-hwe-18.04"
                        "libblockdev-crypto2"
                        "ibus-anthy"
                        "reiser4progs"
+                       "reiserfsprogs"
                        "python3-whichcraft"
                        "volumeicon-alsa"
 )
@@ -139,6 +141,7 @@ pkgs_specific_to_ubuntu2204_jammy=(
                        "libblockdev-crypto2"
                        "ibus-anthy"
                        "reiser4progs"
+                       "reiserfsprogs"
                        "python3-whichcraft"
                        "volumeicon-alsa"
 )
@@ -168,6 +171,7 @@ pkgs_specific_to_ubuntu2410_oracular=(
                        "ibus-anthy"
                        # Needed for 'hwclock' package used by "rc-local.service", moved from base "util-linux" since Ubuntu 23.10 (Mantic)
                        "util-linux-extra"
+                       "reiserfsprogs"
                        "volumeicon-alsa"
 )
 
@@ -195,6 +199,7 @@ pkgs_specific_to_ubuntu2504_plucky=(
                        "ibus-anthy"
                        # Needed for 'hwclock' package used by "rc-local.service", moved from base "util-linux" since Ubuntu 23.10 (Mantic)
                        "util-linux-extra"
+                       "reiserfsprogs"
                        "volumeicon-alsa"
 )
 
@@ -249,6 +254,7 @@ pkgs_specific_to_ubuntu2404_noble=(
                        # FIXME: Can probably remove with the recent introduction of new Javascript-based rules file
                        "polkitd-pkla"
                        "reiser4progs"
+                       "reiserfsprogs"
                        "python3-whichcraft"
                        # Needed for 'hwclock' package used by "rc-local.service", moved from base "util-linux" since Ubuntu 23.10 (Mantic)
                        "util-linux-extra"
@@ -274,6 +280,7 @@ pkgs_specific_to_ubuntu2404_noble_arm64=(
                        # FIXME: Can probably remove with the recent introduction of new Javascript-based rules file
                        "polkitd-pkla"
                        "reiser4progs"
+                       "reiserfsprogs"
                        "python3-whichcraft"
                        # Needed for 'hwclock' package used by "rc-local.service", moved from base "util-linux" since Ubuntu 23.10 (Mantic)
                        "util-linux-extra"
@@ -429,7 +436,6 @@ common_pkgs=("discover"
              # CLI tool to install *.deb files while resolving dependencies
              "gdebi-core"
              "cryptsetup"
-             "reiserfsprogs"
              "dosfstools"
              "mtools"
              "ntfs-3g"
