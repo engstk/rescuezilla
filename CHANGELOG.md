@@ -5,6 +5,7 @@
 * Upgraded to latest partclone `0.3.40` (released November 2025) from partclone `0.3.37` (released June 2025)
 * New translation submitted using Weblate:
     * Galician/Galego (gl-ES) (in-progress)
+* Upgraded to latest partclone `0.3.47` (released March 2026) from partclone `0.3.40` (released November 2025)
 
 # Rescuezilla v2.6.1 (2025-07-16)
 
