@@ -68,6 +68,12 @@ jobs:
       - run: sudo make clean-all
 
       - run: make docker-status
+      - name: Make Ubuntu 26.04 LTS (Resolute) ISO
+        run: make docker-resolute
+      - run: sudo mv build/rescuezilla.amd64.resolute.iso completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.resolute.iso
+      - run: sudo make clean-all
+
+      - run: make docker-status
       - name: Make Ubuntu 24.04 LTS (Noble) ISO
         run: make docker-noble
       - run: sudo mv build/rescuezilla.amd64.noble.iso completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.noble.iso
@@ -150,6 +156,11 @@ jobs:
         with:
           name: rescuezilla-${{github.ref_name}}-64bit.questing.iso
           path: completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.questing.iso
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rescuezilla-${{github.ref_name}}-64bit.resolute.iso
+          path: completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.resolute.iso
 
       - uses: actions/upload-artifact@v4
         with:

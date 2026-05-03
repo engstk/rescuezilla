@@ -242,6 +242,29 @@ pkgs_specific_to_ubuntu2510_questing=(
                        "nouveau-firmware"
 )
 
+pkgs_specific_to_ubuntu2604_resolute=(
+                       "linux-generic"
+                       "xserver-xorg"
+                       "xserver-xorg-video-all"
+                       "xserver-xorg-video-intel"
+                       "xserver-xorg-video-qxl"
+                       "xserver-xorg-video-mga"
+                       "xserver-xorg-input-libinput"
+                        # Packages which may assist users needing to do a GRUB repair (64-bit EFI)
+                       "shim-signed"
+                       "grub-efi-amd64-signed"
+                       "grub-efi-amd64-bin"
+                       "grub-efi-ia32-bin"
+                       # Dependency for Rescuezilla Image Explorer
+                       "nbdkit"
+                       # Replaces exfat-utils
+                       "exfatprogs"
+                       # Add support for crypto volumes mount (luks, bitlocker, crypt)
+                       "libblockdev-crypto3"
+                       "ibus-anthy"
+                       # Needed for 'hwclock' package used by "rc-local.service", moved from base "util-linux" since Ubuntu 23.10 (Mantic)
+                       "util-linux-extra"
+)
 
 pkgs_specific_to_ubuntu2404_noble=(
                        "linux-generic"
@@ -504,6 +527,8 @@ elif  [ "$CODENAME" == "plucky" ]; then
   apt_pkg_list=("${pkgs_specific_to_ubuntu2504_plucky[@]}" "${common_pkgs[@]}")
 elif  [ "$CODENAME" == "questing" ]; then
   apt_pkg_list=("${pkgs_specific_to_ubuntu2510_questing[@]}" "${common_pkgs[@]}")
+elif  [ "$CODENAME" == "resolute" ]; then
+  apt_pkg_list=("${pkgs_specific_to_ubuntu2604_resolute[@]}" "${common_pkgs[@]}")
 elif  [ "$CODENAME" == "noble" ]; then
   apt_pkg_list=("${pkgs_specific_to_ubuntu2404_noble[@]}" "${common_pkgs[@]}")
 else

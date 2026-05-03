@@ -5,6 +5,7 @@
 	oracular \
 	plucky \
 	questing \
+	resolute \
 	noble \
 	noble-arm64 \
 	bionic-i386 \
@@ -67,7 +68,13 @@ questing: ARCH=amd64
 questing: CODENAME=questing
 export ARCH CODENAME
 questing: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
-	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh	
+	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh
+
+resolute: ARCH=amd64
+resolute: CODENAME=resolute
+export ARCH CODENAME
+resolute: deb sfdisk.v2.20.1.amd64 partclone-latest partclone-nbd $(buildscripts)
+	BASE_BUILD_DIRECTORY=$(BASE_BUILD_DIRECTORY) /usr/bin/time ./src/scripts/build.sh
 
 # Note: Ubuntu 24.04 (Long Term Support) won't be released until around April 2024, as per the version string
 # Kept here as the unreleased version can be built and used as a kind of pre-alpha release
@@ -313,6 +320,9 @@ docker-plucky:
 
 docker-questing:
 	docker exec --interactive --workdir=/home/rescuezilla/ builder.container make questing
+
+docker-resolute:
+	docker exec --interactive --workdir=/home/rescuezilla/ builder.container make resolute
 
 docker-noble:
 	docker exec --interactive --workdir=/home/rescuezilla/ builder.container make noble
