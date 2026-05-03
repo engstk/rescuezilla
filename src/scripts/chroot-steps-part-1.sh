@@ -242,6 +242,65 @@ pkgs_specific_to_ubuntu2510_questing=(
                        "nouveau-firmware"
 )
 
+# Since Ubuntu 26.04 ("Resolute") released in April 2026, the 'linux-firmware' package has been split into granular packages [1]
+# Let's include everything that sounds like it would be useful in a Rescuezilla environment for maximum support for graphics,
+# wifi, ethernet, audio etc across a wide variety of hardware platforms.
+# 
+# [1] https://hintnal.com/ubuntu-26-04-lts-firmware-split-what-developers-need-to-know/
+pkgs_granular_linux_firmware_all_arch_resolute=(
+                       # Metapackage pulling in all firmware subpackages
+                       "linux-firmware"
+                       # AMD/ATI graphics firmware
+                       "linux-firmware-amd-graphics"
+                       # AMD NPU accelerator firmware (including as it's name is generic enough)
+                       "linux-firmware-amd-misc"
+                       # Broadcom and Cypress Wi-Fi and Bluetooth firmware
+                       "linux-firmware-broadcom-wireless"
+                       # Intel graphics, IPU, and VSC processor firmware
+                       "linux-firmware-intel-graphics"
+                       # Miscellaneous Intel device firmware
+                       "linux-firmware-intel-misc"
+                       # Intel Wi-Fi and Bluetooth firmware
+                       "linux-firmware-intel-wireless"
+                       # Marvell and NXP Wi-Fi adapter firmware
+                       "linux-firmware-marvell-wireless"
+                       # Mediatek Wi-Fi, Bluetooth, Ethernet, and SoC firmware
+                       "linux-firmware-mediatek"
+                       # Firmware for miscellaneous devices and adapters
+                       "linux-firmware-misc"
+                       # Nvidia graphics firmware
+                       "linux-firmware-nvidia-graphics"
+                       # QLogic SCSI, FC, IB, and Ethernet adapter firmware
+                       "linux-firmware-qlogic"
+                       # Qualcomm graphics and video processor firmware
+                       "linux-firmware-qualcomm-graphics"
+                       # Miscellaneous Qualcomm device firmware
+                       "linux-firmware-qualcomm-misc"
+                       # Qualcomm and Atheros Wi-Fi and Bluetooth firmware
+                       "linux-firmware-qualcomm-wireless"
+                       # Realtek Wi-Fi, Bluetooth, Ethernet, and audio firmware
+                       "linux-firmware-realtek"
+
+                       # Deliberately not selecting some firmware that seems unlikely to be used in Rescuezilla environments (unless a user requests it)
+                       # * Marvell Prestera ASIC device firmware: "linux-firmware-marvell-prestera"
+                       # * Mellanox Spectrum switch firmware: "linux-firmware-mellanox-spectrum"
+                       # * Netronome Ethernet adapter firmware: "linux-firmware-netronome"
+                       # * Xilinx AP1302 ISP firmware [multiverse]: "linux-firmware-xilinx-ap1302"
+                       # * Xilinx VCU firmware [multiverse]: "linux-firmware-xilinx-vcu"
+)
+
+# There are a set of ARM64-only firmware packages that we will want to install when we have an ARM64 build ready
+_pkgs_granular_linux_firmware_arm64_resolute=(
+                       # Mediatek Genio board firmware [multiverse]
+                       "linux-firmware-mediatek-genio"
+                       # NVIDIA Tegra device firmware [multiverse]
+                       "linux-firmware-nvidia-tegra"
+                       # Raspberry Pi 2/3/4 GPU firmware and bootloaders [restricted]
+                       "linux-firmware-raspi"
+                       # Qualcomm Snapdragon / DragonBoard410c Wi-Fi firmware [multiverse]
+                       "linux-firmware-snapdragon"
+)
+
 pkgs_specific_to_ubuntu2604_resolute=(
                        "linux-generic"
                        "xserver-xorg"
@@ -264,6 +323,7 @@ pkgs_specific_to_ubuntu2604_resolute=(
                        "ibus-anthy"
                        # Needed for 'hwclock' package used by "rc-local.service", moved from base "util-linux" since Ubuntu 23.10 (Mantic)
                        "util-linux-extra"
+                       "${pkgs_granular_linux_firmware_all_arch_resolute[@]}"
 )
 
 pkgs_specific_to_ubuntu2404_noble=(
