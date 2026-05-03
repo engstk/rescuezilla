@@ -84,6 +84,8 @@ pkgs_specific_to_ubuntu1804_bionic_32bit=("linux-generic-hwe-18.04"
                         "reiserfsprogs"
                         "python3-whichcraft"
                         "volumeicon-alsa"
+                        # Firmware package for NVidia cards from ~2009 (newer cards have firmware in the kernel)
+                        "nouveau-firmware"
 )
 
 # Packages specific to Rescuezilla 64-bit build (currently based Ubuntu 20.04 Focal)
@@ -116,6 +118,8 @@ pkgs_specific_to_ubuntu2004_focal=("linux-generic-hwe-18.04"
                        "reiserfsprogs"
                        "python3-whichcraft"
                        "volumeicon-alsa"
+                       # Firmware package for NVidia cards from ~2009 (newer cards have firmware in the kernel)
+                       "nouveau-firmware"
 )
 
 pkgs_specific_to_ubuntu2204_jammy=(
@@ -144,6 +148,8 @@ pkgs_specific_to_ubuntu2204_jammy=(
                        "reiserfsprogs"
                        "python3-whichcraft"
                        "volumeicon-alsa"
+                       # Firmware package for NVidia cards from ~2009 (newer cards have firmware in the kernel)
+                       "nouveau-firmware"
 )
 
 pkgs_specific_to_ubuntu2410_oracular=(
@@ -173,6 +179,8 @@ pkgs_specific_to_ubuntu2410_oracular=(
                        "util-linux-extra"
                        "reiserfsprogs"
                        "volumeicon-alsa"
+                       # Firmware package for NVidia cards from ~2009 (newer cards have firmware in the kernel)
+                       "nouveau-firmware"
 )
 
 pkgs_specific_to_ubuntu2504_plucky=(
@@ -201,6 +209,8 @@ pkgs_specific_to_ubuntu2504_plucky=(
                        "util-linux-extra"
                        "reiserfsprogs"
                        "volumeicon-alsa"
+                       # Firmware package for NVidia cards from ~2009 (newer cards have firmware in the kernel)
+                       "nouveau-firmware"
 )
 
 pkgs_specific_to_ubuntu2510_questing=(
@@ -228,6 +238,8 @@ pkgs_specific_to_ubuntu2510_questing=(
                        # Needed for 'hwclock' package used by "rc-local.service", moved from base "util-linux" since Ubuntu 23.10 (Mantic)
                        "util-linux-extra"
                        "volumeicon-alsa"
+                       # Firmware package for NVidia cards from ~2009 (newer cards have firmware in the kernel)
+                       "nouveau-firmware"
 )
 
 
@@ -259,6 +271,8 @@ pkgs_specific_to_ubuntu2404_noble=(
                        # Needed for 'hwclock' package used by "rc-local.service", moved from base "util-linux" since Ubuntu 23.10 (Mantic)
                        "util-linux-extra"
                        "volumeicon-alsa"
+                       # Firmware package for NVidia cards from ~2009 (newer cards have firmware in the kernel)
+                       "nouveau-firmware"
 )
 
 pkgs_specific_to_ubuntu2404_noble_arm64=(
@@ -285,6 +299,8 @@ pkgs_specific_to_ubuntu2404_noble_arm64=(
                        # Needed for 'hwclock' package used by "rc-local.service", moved from base "util-linux" since Ubuntu 23.10 (Mantic)
                        "util-linux-extra"
                        "volumeicon-alsa"
+                       # Firmware package for NVidia cards from ~2009 (newer cards have firmware in the kernel)
+                       "nouveau-firmware"
 )
 
 # Languages on the system
@@ -370,8 +386,6 @@ common_pkgs=("discover"
              "lightdm"
              # lightdm complains on arm64 when this is missing
 	     "accountsservice"
-             # Firmware package for NVidia cards from ~2009 (newer cards have firmware in the kernel)
-             "nouveau-firmware"
              "x11-xserver-utils"
              "xterm"
              "network-manager-gnome"
