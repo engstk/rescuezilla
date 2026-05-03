@@ -240,6 +240,8 @@ pkgs_specific_to_ubuntu2510_questing=(
                        "volumeicon-alsa"
                        # Firmware package for NVidia cards from ~2009 (newer cards have firmware in the kernel)
                        "nouveau-firmware"
+                       # Intel Intelligent Storage Acceleration Library
+                       "libisal2"
 )
 
 # Since Ubuntu 26.04 ("Resolute") released in April 2026, the 'linux-firmware' package has been split into granular packages [1]
@@ -324,6 +326,8 @@ pkgs_specific_to_ubuntu2604_resolute=(
                        # Needed for 'hwclock' package used by "rc-local.service", moved from base "util-linux" since Ubuntu 23.10 (Mantic)
                        "util-linux-extra"
                        "${pkgs_granular_linux_firmware_all_arch_resolute[@]}"
+                       # Intel Intelligent Storage Acceleration Library
+                       "libisal2"
 )
 
 pkgs_specific_to_ubuntu2404_noble=(
