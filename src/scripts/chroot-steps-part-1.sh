@@ -565,6 +565,7 @@ common_pkgs=("discover"
              "flashrom"
              "hashdeep"
              "zstd"
+             "libxxhash0"
 )
 
 # Install openssh-server only if the IS_INTEGRATION_TEST variable is enable
