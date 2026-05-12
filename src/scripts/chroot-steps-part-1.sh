@@ -330,6 +330,7 @@ pkgs_specific_to_ubuntu2604_resolute=(
                        "libisal2"
                        # volumeicon-alsa not available for resolute
                        "pnmixer"
+                       "fastfetch"
 )
 
 pkgs_specific_to_ubuntu2404_noble=(
@@ -569,7 +570,6 @@ common_pkgs=("discover"
              "bash-completion"
              "gtkhash"
              "htop"
-             "neofetch"
              "kdiskmark"
              "meld"
              "remmina"
