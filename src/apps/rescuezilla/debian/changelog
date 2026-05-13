@@ -1,8 +1,8 @@
-rescuezilla (2.6.2.1-1) unstable; urgency=low
+rescuezilla (2.6.2.2-1) unstable; urgency=low
 
   * New version. For full changes: See https://github.com/engstk/rescuezilla/commits/master
 
- -- eng.stk <eng.stk@sapo.pt>  Tue, 12 May 2026 19:55:00 +0100
+ -- eng.stk <eng.stk@sapo.pt>  Wed, 13 May 2026 12:50:00 +0100
 
 rescuezilla (2.6.1-1) unstable; urgency=low
 
