@@ -1,158 +1,246 @@
-<!DOCTYPE Menu PUBLIC '-//freedesktop//DTD Menu 1.0//EN'
- 'http://www.freedesktop.org/standards/menu-spec/menu-1.0.dtd'>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Menu
+  PUBLIC '-//freedesktop//DTD Menu 1.0//EN'
+  'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>
 <Menu>
-    <Name>Applications</Name>
-    <MergeFile type='parent'>/etc/xgd/menus/lxde-applications.menu</MergeFile>
-    <DefaultLayout inline="false"/>
-    <Menu>
-        <Name>Accessories</Name>
-        <!-- added by LibFM -->
-        <Include>
-            <Filename>pcmanfm.desktop</Filename>
-        </Include>
-        <!-- added by LibFM -->
-        <Include>
-            <Filename>xfce4-terminal.desktop</Filename>
-        </Include>
-        <!-- deleted by LibFM -->
-        <Exclude>
-            <Filename>exo-terminal-emulator.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>exo-file-manager.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>org.gnome.DiskUtility.desktop</Filename>
-        </Exclude>
-
-    </Menu>
-    <Menu>
-        <Name>System</Name>
-        <!-- deleted by LibFM -->
-        <Exclude>
-            <Filename>pcmanfm.desktop</Filename>
-        </Exclude>
-        <!-- deleted by LibFM -->
-        <Exclude>
-            <Filename>org.gnome.baobab.desktop</Filename>
-        </Exclude>
-        <!-- deleted by LibFM -->
-        <Exclude>
-            <Filename>gparted.desktop</Filename>
-        </Exclude>
-        <!-- deleted by LibFM -->
-        <Exclude>
-            <Filename>lshw-gtk.desktop</Filename>
-        </Exclude>
-        <!-- deleted by LibFM -->
-        <Deleted/>
-    </Menu>
-    <Menu>
-        <Name>Development</Name>
-        <!-- deleted by LibFM -->
-        <Deleted/>
-    </Menu>
-    <Menu>
-        <Name>Multimedia</Name>
-        <!-- deleted by LibFM -->
-        <Deleted/>
-    </Menu>
-    <Menu>
-        <Name>DesktopSettings</Name>
-        <!-- deleted by LibFM -->
-        <Exclude>
-            <Filename>xfce4-terminal-settings.desktop</Filename>
-        </Exclude>
-        <!-- deleted by LibFM -->
-        <Exclude>
-            <Filename>org.gnome.baobab.desktop</Filename>
-        </Exclude>
-        <!-- deleted by LibFM -->
-        <Exclude>
-            <Filename>gparted.desktop</Filename>
-        </Exclude>
-        <!-- added by LibFM -->
-        <Include>
-            <Filename>alsamixergui.desktop</Filename>
-        </Include>
-        <!-- deleted by LibFM -->
-        <Exclude>
-            <Filename>org.gnome.DiskUtility.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>debian-uxterm.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>debian-xterm.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>lshw-gtk.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>exo-preferred-applications.desktop</Filename>
-        </Exclude>
-    </Menu>
-    <Menu>
-        <Name>Internet</Name>
-        <!-- deleted by LibFM -->
-        <Deleted/>
-    </Menu>
-    <Menu>
-        <Name>Other</Name>
-        <!-- deleted by LibFM -->
-        <Exclude>
-            <Filename>rescuezilla.desktop</Filename>
-        </Exclude>
-        <!-- deleted by LibFM -->
-        <Exclude>
-            <Filename>alsamixergui.desktop</Filename>
-        </Exclude>
-        <!-- added by LibFM -->
-        <Include>
-            <Filename>org.gnome.DiskUtility.desktop</Filename>
-        </Include>
-        <Exclude>
-            <Filename>yad-icon-browser.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>chromium-browser.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>debian-uxterm.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>debian-xterm.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>lshw-gtk.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>org.gnome.baobab.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>org.gnome.baobab-pkexec.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>drive.reset.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>exo-mail-reader.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>exo-terminal-emulator.desktop</Filename>
-        </Exclude>
-        <Exclude>
-            <Filename>exo-web-browser.desktop</Filename>
-        </Exclude>
-    </Menu>
-    <Layout>
-       <Merge type="menus"/>
-        <Filename>rescuezilla.desktop</Filename>
-        <Separator/>
-        <Menuname>Accessories</Menuname>
-        <Menuname>Office</Menuname>
-        <Menuname>Other</Menuname>
-        <Menuname>DesktopSettings</Menuname>
-        <Merge type="files"/>
-    </Layout>
+	<Name>Applications</Name>
+	<DefaultAppDirs />
+	<DefaultDirectoryDirs />
+	<DefaultMergeDirs />
+	<MergeFile type="parent">/etc/xdg/menus/lxde-applications.menu</MergeFile>
+	<Menu>
+		<Name>Accessories</Name>
+		<Directory>lxde-utility.directory</Directory>
+		<Layout>
+			<Merge type="menus" />
+			<Filename>org.gnome.DiskUtility.desktop</Filename>
+			<Filename>galculator.desktop</Filename>
+			<Filename>org.gtkhash.gtkhash.desktop</Filename>
+			<Filename>org.xfce.mousepad.desktop</Filename>
+			<Filename>picom.desktop</Filename>
+			<Filename>org.gnome.World.PikaBackup.desktop</Filename>
+			<Filename>xfce4-screenshooter.desktop</Filename>
+			<Filename>xarchiver.desktop</Filename>
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Debian</Name>
+		<Directory>lxde-debian.directory</Directory>
+		<DirectoryDir>/home/ubuntu/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus" />
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Development</Name>
+		<Directory>lxde-development.directory</Directory>
+		<Layout>
+			<Merge type="menus" />
+			<Filename>org.gnome.GHex.desktop</Filename>
+			<Filename>yad-icon-browser.desktop</Filename>
+			<Filename>org.gnome.Meld.desktop</Filename>
+			<Filename>python3.14.desktop</Filename>
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Education</Name>
+		<Directory>lxde-education.directory</Directory>
+		<DirectoryDir>/home/ubuntu/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus" />
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Games</Name>
+		<Directory>lxde-game.directory</Directory>
+		<DirectoryDir>/home/ubuntu/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus" />
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Graphics</Name>
+		<Directory>lxde-graphics.directory</Directory>
+		<DirectoryDir>/home/ubuntu/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus" />
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Internet</Name>
+		<Directory>lxde-network.directory</Directory>
+		<Layout>
+			<Merge type="menus" />
+			<Filename>firefox.desktop</Filename>
+			<Filename>org.remmina.Remmina-file.desktop</Filename>
+			<Filename>org.remmina.Remmina.desktop</Filename>
+			<Filename>rustdesk.desktop</Filename>
+			<Filename>lxde-x-www-browser.desktop</Filename>
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Multimedia</Name>
+		<Directory>lxde-audio-video.directory</Directory>
+		<Layout>
+			<Merge type="menus" />
+			<Filename>alsamixergui.desktop</Filename>
+			<Filename>mpv.desktop</Filename>
+			<Filename>pnmixer.desktop</Filename>
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Office</Name>
+		<Directory>lxde-office.directory</Directory>
+		<DirectoryDir>/home/ubuntu/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus" />
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Science</Name>
+		<Directory>lxde-science.directory</Directory>
+		<DirectoryDir>/home/ubuntu/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus" />
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>System</Name>
+		<Directory>lxde-system.directory</Directory>
+		<Layout>
+			<Merge type="menus" />
+			<Filename>io.github.thetumultuousunicornofdarkness.cpu-x.desktop</Filename>
+			<Filename>org.gnome.baobab-pkexec.desktop</Filename>
+			<Filename>org.gnome.baobab.desktop</Filename>
+			<Filename>gparted.desktop</Filename>
+			<Filename>grsync.desktop</Filename>
+			<Filename>gsmartcontrol.desktop</Filename>
+			<Filename>hardinfo2.desktop</Filename>
+			<Filename>htop.desktop</Filename>
+			<Filename>kdiskmark.desktop</Filename>
+			<Filename>pcmanfm.desktop</Filename>
+			<Filename>lxde-x-terminal-emulator.desktop</Filename>
+			<Filename>timeshift-gtk.desktop</Filename>
+			<Filename>debian-uxterm.desktop</Filename>
+			<Filename>xfce4-terminal.desktop</Filename>
+			<Filename>debian-xterm.desktop</Filename>
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Universal Access</Name>
+		<Directory>lxde-utility-accessibility.directory</Directory>
+		<DirectoryDir>/home/ubuntu/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus" />
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Other</Name>
+		<Directory>lxde-other.directory</Directory>
+		<DirectoryDir>/home/ubuntu/.local/share/desktop-directories</DirectoryDir>
+		<Include>
+			<Filename>gnome-disk-image-mounter.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>gnome-disk-image-writer.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>org.freedesktop.IBus.Panel.Extension.Gtk3.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>org.freedesktop.IBus.Panel.Emojier.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>testdisk.file.recovery.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>ibus-setup-anthy.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>org.freedesktop.IBus.Panel.Wayland.Gtk3.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>nm-applet.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>openbox.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>photorec.deep.scan.photo.recovery.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>org.gnome.World.PikaBackup.Monitor.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>remmina-gnome.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>rustdesk-link.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus" />
+			<Filename>gnome-disk-image-mounter.desktop</Filename>
+			<Filename>gnome-disk-image-writer.desktop</Filename>
+			<Filename>org.freedesktop.IBus.Panel.Extension.Gtk3.desktop</Filename>
+			<Filename>org.freedesktop.IBus.Panel.Emojier.desktop</Filename>
+			<Filename>testdisk.file.recovery.desktop</Filename>
+			<Filename>ibus-setup-anthy.desktop</Filename>
+			<Filename>org.freedesktop.IBus.Panel.Wayland.Gtk3.desktop</Filename>
+			<Filename>nm-applet.desktop</Filename>
+			<Filename>openbox.desktop</Filename>
+			<Filename>photorec.deep.scan.photo.recovery.desktop</Filename>
+			<Filename>org.gnome.World.PikaBackup.Monitor.desktop</Filename>
+			<Filename>remmina-gnome.desktop</Filename>
+			<Filename>rustdesk-link.desktop</Filename>
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>DesktopSettings</Name>
+		<Directory>lxde-settings.directory</Directory>
+		<Layout>
+			<Merge type="menus" />
+			<Filename>nm-connection-editor.desktop</Filename>
+			<Filename>arandr.desktop</Filename>
+			<Filename>lxappearance.desktop</Filename>
+			<Filename>pcmanfm-desktop-pref.desktop</Filename>
+			<Filename>org.freedesktop.IBus.Setup.desktop</Filename>
+			<Filename>org.xfce.mousepad-settings.desktop</Filename>
+			<Filename>xfce4-terminal-settings.desktop</Filename>
+			<Merge type="files" />
+		</Layout>
+	</Menu>
+	<Include>
+		<Filename>rescuezilla.desktop</Filename>
+	</Include>
+	<Layout>
+		<Filename>rescuezilla.desktop</Filename>
+		<Separator />
+		<Menuname>Accessories</Menuname>
+		<Menuname>Debian</Menuname>
+		<Menuname>Development</Menuname>
+		<Menuname>Education</Menuname>
+		<Menuname>Games</Menuname>
+		<Menuname>Graphics</Menuname>
+		<Menuname>Internet</Menuname>
+		<Menuname>Multimedia</Menuname>
+		<Menuname>Office</Menuname>
+		<Menuname>Science</Menuname>
+		<Menuname>System</Menuname>
+		<Menuname>Universal Access</Menuname>
+		<Menuname>Other</Menuname>
+		<Menuname>DesktopSettings</Menuname>
+	</Layout>
 </Menu>
