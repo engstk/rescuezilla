@@ -1,4 +1,4 @@
-# Rescuezilla v2.6.2 (unreleased)
+# Rescuezilla v2.6.2 (2026-05-15)
 
 * Adds release based on Ubuntu 26.04 LTS (Resolute) for best support of new hardware (circa April 2026 hardware)
   * the prior release Recuezilla v2.6.1 (2025-07-16) left the default release using Ubuntu 24.10 (Oracular) which only provided hardware support to circa October 2024, despite it introducing an release based on Ubuntu 25.04 (Plucky)
