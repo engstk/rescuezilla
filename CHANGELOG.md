@@ -7,7 +7,7 @@
 * Fixed graphical-shutdown menu not opening on the "Plucky" variant due to missing item in custom rules file for polkit authentication manager ([#590](https://github.com/rescuezilla/rescuezilla/issues/590))
 * Upgraded to latest partclone `0.3.47` (released March 2026) from partclone `0.3.37` (released June 2025)
 * Temporarily disables the 32-bit (Intel i386) build based on Ubuntu 18.04 (Bionic)
-* Temporarily disables older 64-bit (AMD64) build based on Ubuntu 22.04 (Jammy) and Ubuntu 24.04 (Noble)
+* Temporarily disables older 64-bit (AMD64) build based on Ubuntu 22.04 (Jammy), Ubuntu 24.04 (Noble) and Ubuntu 25.04 (Plucky)
 * New translation submitted using Weblate:
     * Galician/Galego (gl-ES) (in-progress)
 * Integrated language selection for unbegun (empty) translations already listed in Weblate to encourage translation commencement:

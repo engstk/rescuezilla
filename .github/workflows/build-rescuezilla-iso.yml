@@ -56,12 +56,6 @@ jobs:
       - run: sudo mv build/rescuezilla_${{env.DEB_VERSION}}-1_all.deb completed-artifacts/rescuezilla_${{env.DEB_VERSION}}-1_all.deb
 
       - run: make docker-status
-      - name: Make Ubuntu 25.04 (Plucky) ISO
-        run: make docker-plucky
-      - run: sudo mv build/rescuezilla.amd64.plucky.iso completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.plucky.iso
-      - run: sudo make clean-all
-
-      - run: make docker-status
       - name: Make Ubuntu 25.10 (Questing) ISO
         run: make docker-questing
       - run: sudo mv build/rescuezilla.amd64.questing.iso completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.questing.iso
@@ -128,11 +122,6 @@ jobs:
         with:
           name: rescuezilla-${{github.ref_name}}-64bit.oracular.iso
           path: completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.oracular.iso
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: rescuezilla-${{github.ref_name}}-64bit.plucky.iso
-          path: completed-artifacts/rescuezilla-${{github.ref_name}}-64bit.plucky.iso
 
       - uses: actions/upload-artifact@v4
         with:
