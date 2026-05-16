@@ -1,3 +1,9 @@
+graphical-shutdown (2.6.2-1) unstable; urgency=low
+
+  * New version. For full changes: See https://raw.githubusercontent.com/rescuezilla/rescuezilla/master/CHANGELOG.md
+
+ -- Shasheen Ediriweera <1414379+shasheene@users.noreply.github.com>  Fri, 15 May 2026 21:55:16 -0700
+
 graphical-shutdown (2.6.1-1) unstable; urgency=low
 
   * New version. For full changes: See https://raw.githubusercontent.com/rescuezilla/rescuezilla/master/CHANGELOG.md
