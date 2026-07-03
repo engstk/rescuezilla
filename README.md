@@ -1,4 +1,11 @@
-[![Rescuezilla banner](docs/images/banner.big.png)](https://rescuezilla.com) 
+[![Rescuezilla banner](docs/images/banner.big.png)](https://rescuezilla.com)
+
+## Rescuezilla mod
+
+[![](https://img.shields.io/github/v/release/engstk/rescuezilla?display_name=tag&label=Release&color=blue)](https://github.com/engstk/rescuezilla/releases/latest)
+[![](https://img.shields.io/github/release-date/engstk/rescuezilla?label=Date&color=blue)](https://github.com/engstk/rescuezilla/releases/latest)
+[![](https://img.shields.io/github/downloads/engstk/rescuezilla/latest/total?label=Downloads&color=blue)](https://github.com/engstk/rescuezilla/releases/latest)
+[![](https://img.shields.io/github/downloads/engstk/rescuezilla/total?label=Total%20Downloads&color=blue)](https://github.com/engstk/rescuezilla/releases)
 
 Rescuezilla is an easy-to-use disk cloning and imaging application that's fully compatible with Clonezilla — the industry-standard trusted by tens of millions.
 
